@@ -1,6 +1,6 @@
-# Twittable Behavior for Yii2
+# Google Analytics for Yii2
 
-This extension provides behavior functions for tweeting.
+This extension provides easy way to add Universal Analytics tracking in your Yii2 application.
 
 ## Installation
 
