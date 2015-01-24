@@ -1,0 +1,25 @@
+{
+  "name": "cybercog/yii2-google-analytics",
+  "description": "Google Analytics extension for the Yii2 framework",
+  "keywords": [
+    "yii2",
+    "google",
+    "analytics"
+  ],
+  "type": "yii2-extension",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Anton Komarev",
+      "email": "ell@cybercog.su"
+    }
+  ],
+  "require": {
+    "yiisoft/yii2": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "cybercog\\yii\\googleanalytics\\": "src"
+    }
+  }
+}
