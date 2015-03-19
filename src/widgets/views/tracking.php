@@ -12,4 +12,5 @@
 
     ga('create', '<?= $trackingId ?>', 'auto');
     ga('send', 'pageview');
+    ga('set', 'anonymizeIp', <?= $trackingParams['anonymizeIp'] ?>);
 </script>

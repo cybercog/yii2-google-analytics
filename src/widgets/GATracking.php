@@ -15,8 +15,21 @@ use yii\base\Widget;
  */
 class GATracking extends Widget
 {
+    /**
+     * The GA tracking ID
+     * @var null
+     */
     public $trackingId = null;
 
+    /**
+     * Anonymize IP
+     * @var string
+     */
+    public $anonymizeIp = 'true';
+
+    /**
+     * @var array
+     */
     private $_viewParams;
 
     public function init()
@@ -26,7 +39,8 @@ class GATracking extends Widget
         $this->_viewParams = [
             'trackingId'     => $this->trackingId,
             'trackingParams' => [
-                // :TODO: Add params
+                'anonymizeIp' => $this->anonymizeIp
+                // :TODO: Add more params
             ],
         ];
     }
