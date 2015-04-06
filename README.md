@@ -34,7 +34,8 @@ Then before `</head>` add following code
 <?= GATracking::widget(
     [
         'trackingId' => 'UA-XXXXXXXX-X',
-        'anonymizeIp' => '[true|false]',
+        'anonymizeIp' => '[true|false]',    // string
+        'inPageAnalysis' => [true|false],   // boolean
     ]
 ) ?>
 ```
