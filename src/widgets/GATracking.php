@@ -28,6 +28,13 @@ class GATracking extends Widget
     public $anonymizeIp = 'true';
 
     /**
+     * In-Page-Analysis
+     * extended link assignment
+     * @var bool
+     */
+    public $inPageAnalysis = false;
+
+    /**
      * @var array
      */
     private $_viewParams;
@@ -39,7 +46,8 @@ class GATracking extends Widget
         $this->_viewParams = [
             'trackingId'     => $this->trackingId,
             'trackingParams' => [
-                'anonymizeIp' => $this->anonymizeIp
+                'anonymizeIp'    => $this->anonymizeIp,
+                'inPageAnalysis' => $this->inPageAnalysis
                 // :TODO: Add more params
             ],
         ];
