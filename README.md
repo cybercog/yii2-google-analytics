@@ -60,7 +60,7 @@ Then before `</head>` add following code
 
 
 | Field Name | Value Type | Default Value |
-| :--------: | :--------: | :-----------: |
+| :--------- | :--------- | :------------ |
 | anonymizeIp | boolean | true |
 
 ### [Official field reference](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference)
@@ -70,7 +70,7 @@ Then before `</head>` add following code
 ### linkid
 
 | Option Name | Default Value | Description |
-| :---------: | :-----------: | :---------: |
+| :---------- | :------------ | :---------- |
 | cookieName  | _gali         | Cookie name |
 | duration    | 30            | Cookie duration (seconds) |
 | levels      | 3             | Max DOM levels from link to look for element ID |
