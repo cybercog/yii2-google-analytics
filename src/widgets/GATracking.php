@@ -1,6 +1,6 @@
 <?php
 /**
- * @link https://github.com/cybercog/yii2-twittable
+ * @link https://github.com/cybercog/yii2-google-analytics
  * @copyright Copyright (c) 2015 LLC CyberCog
  * @license http://opensource.org/licenses/BSD-3-Clause
  */
@@ -43,7 +43,7 @@ class GATracking extends Widget
         parent::init();
 
         $this->_viewParams = [
-            'trackingId'     => $this->trackingId,
+            'trackingId' => $this->trackingId,
             'fields' => [
                 'anonymizeIp' => $this->anonymizeIp
                 // :TODO: Add more params
