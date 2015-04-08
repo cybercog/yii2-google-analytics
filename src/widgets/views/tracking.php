@@ -2,6 +2,7 @@
 /**
  * @var string  $trackingId
  * @var array   $trackingParams
+ * @var array   $tackingPlugins
  */
 ?>
 <script>
@@ -12,5 +13,10 @@
 
     ga('create', '<?= $trackingId ?>', 'auto');
     ga('send', 'pageview');
-    ga('set', 'anonymizeIp', <?= $trackingParams['anonymizeIp'] ?>);
+    <?php foreach($trackingFields as $field => $value) : ?>
+        ga('set', '<?= $field ?>', <?= $value ?>);
+    <?php endforeach ?>
+    <?php foreach($trackingPlugins as $plugin => $scriptFilename) : ?>
+        ga('require', '<?= $plugin ?>', '<?= $scriptFilename ?>');
+    <?php endforeach ?>
 </script>
