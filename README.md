@@ -67,7 +67,7 @@ Then before `</head>` add following code
 
 ## Available plugins
 
-### linkid
+### linkid (Enhanced Link Attribution)
 
 | Option Name | Default Value | Description |
 | :---------- | :------------ | :---------- |
