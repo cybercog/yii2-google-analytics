@@ -69,12 +69,10 @@ Then before `</head>` add following code
 
 ### linkid
 
-Options list
-
-```
-cookieName // Cookie name. _gali by default.
-duration   // Cookie duration. 30 seconds by default.
-levels     // Max DOM levels from link to look for element ID. 3 by default.
-```
+| Option Name | Default Value | Description |
+| :---------: | :-----------: | :---------: |
+| cookieName  | _gali         | Cookie name |
+| duration    | 30            | Cookie duration (seconds) |
+| levels      | 3             | Max DOM levels from link to look for element ID |
 
 ### [Creating your own plugins](https://developers.google.com/analytics/devguides/collection/analyticsjs/plugins)
