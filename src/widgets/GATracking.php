@@ -28,6 +28,12 @@ class GATracking extends Widget
     public $anonymizeIp = true;
 
     /**
+     * Plugins list
+     * @var array
+     */
+    public $plugins = [];
+
+    /**
      * @var array
      */
     private $_viewParams;
@@ -42,10 +48,8 @@ class GATracking extends Widget
                 'anonymizeIp' => $this->anonymizeIp
                 // :TODO: Add more params
             ],
-            'plugins' => [
-                // :TODO: Add availability to assign options
-                'linkid' => 'linkid.js'
-            ]
+            // :TODO: Add availability to assign options
+            'plugins' => $this->plugins
         ];
     }
 
