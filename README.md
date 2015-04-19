@@ -9,13 +9,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```bash
-$ php composer.phar require cybercog/yii2-google-analytics "*"
+$ php composer.phar require cybercog/yii2-google-analytics "~0.2"
 ```
 
 or add
 
 ```json
-"cybercog/yii2-google-analytics": "*"
+"cybercog/yii2-google-analytics": "~0.2"
 ```
 
 to the require section of your `composer.json` file.
