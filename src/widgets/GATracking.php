@@ -1,6 +1,6 @@
 <?php
 /**
- * @link https://github.com/cybercog/yii2-twittable
+ * @link https://github.com/cybercog/yii2-google-analytics
  * @copyright Copyright (c) 2015 LLC CyberCog
  * @license http://opensource.org/licenses/BSD-3-Clause
  */
@@ -17,15 +17,47 @@ class GATracking extends Widget
 {
     /**
      * The GA tracking ID
-     * @var null
+     * @var string
      */
     public $trackingId = null;
 
     /**
-     * Anonymize IP
+     * Tracking object configuration.
+     * @var array
+     */
+    public $trackingConfig = 'auto';
+
+    /**
+     * Anonymize the IP address of the hit (http request) sent to GA.
+     * @var bool
+     */
+    public $anonymizeIp = true;
+
+    /**
+     * Output debug information to the console.
+     * @var bool
+     */
+    public $debug = false;
+
+    /**
+     * Trace debugging will output more verbose information to the console.
+     * @var bool
+     */
+    public $debugTrace = false;
+
+    /**
+     * Plugins list
+     * @var array
+     */
+    public $plugins = [];
+
+    /**
+     * GA script filename
      * @var string
      */
-    public $anonymizeIp = 'true';
+    private $_trackingFilename = 'analytics.js';
+
+    private $_trackingDebugTraceInit = '';
 
     /**
      * @var array
@@ -36,12 +68,30 @@ class GATracking extends Widget
     {
         parent::init();
 
+        if ($this->debug) {
+            $this->_trackingFilename = 'analytics_debug.js';
+        }
+        if ($this->debugTrace) {
+            $this->_trackingDebugTraceInit = 'window.ga_debug = {trace: true};';
+        }
+
+        $this->trackingConfig = json_encode($this->trackingConfig);
+        $this->anonymizeIp = json_encode($this->anonymizeIp);
+        foreach ($this->plugins as $plugin => &$options) {
+            $options = json_encode($options);
+        }
+
         $this->_viewParams = [
-            'trackingId'     => $this->trackingId,
-            'trackingParams' => [
+            'trackingId' => $this->trackingId,
+            'trackingConfig' => $this->trackingConfig,
+            'trackingFilename' => $this->_trackingFilename,
+            'trackingDebugTraceInit' => $this->_trackingDebugTraceInit,
+            'fields' => [
                 'anonymizeIp' => $this->anonymizeIp
                 // :TODO: Add more params
             ],
+            // :TODO: Add availability to configure events
+            'plugins' => $this->plugins
         ];
     }
 
