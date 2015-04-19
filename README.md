@@ -44,6 +44,12 @@ Then before `</head>` add following code
 <?= GATracking::widget(
     [
         'trackingId' => 'UA-XXXXXXXX-X',
+        'trackingConfig' => [
+            'name' => 'myTracker',
+            'allowAnchor' => false
+        ],
+        'debug' => true,
+        'debugTrace' => true,
         'anonymizeIp' => true,
         'plugins' => [
             'linkid' => [
