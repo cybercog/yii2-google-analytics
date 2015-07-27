@@ -20,7 +20,7 @@ class GATracking extends Widget
      * Render <script></script> 
      * @var bool
      */
-    public $asScript = true;
+    public $omitScriptTag = false;
     
     /**
      * The GA tracking ID
@@ -89,7 +89,7 @@ class GATracking extends Widget
         }
 
         $this->_viewParams = [
-            'asScript' => $this->asScript,
+            'omitScriptTag' => $this->omitScriptTag,
             'trackingId' => $this->trackingId,
             'trackingConfig' => $this->trackingConfig,
             'trackingFilename' => $this->_trackingFilename,
