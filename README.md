@@ -54,12 +54,12 @@ ga('set', 'anonymizeIp', true);
 </script>
 ```
 
-But sometimes we need the output without `script` tag to combined with `registerJs` or `registerJsFile` as `renderPartial` to add dependency or positioning configuration, you can use *asScript* **false** to disable `script` tag, example :
+But sometimes we need the output without `script` tag to combined with `registerJs` or `registerJsFile` as `renderPartial` to add dependency or positioning configuration, you can use *omitScriptTag* **true** to disable `script` tag, example :
 
 ```php
 <?= $this->registerJs( GATracking::widget([
-    'trackingId' => 'UA-XXXXXXXX-X',
-    'asScript'   => false
+    'trackingId'      => 'UA-XXXXXXXX-X',
+    'omitScriptTag'   => true
 ]), \yii\web\View::POS_END
 );?>
 ```
