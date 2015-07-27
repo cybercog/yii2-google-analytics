@@ -1,12 +1,12 @@
 <?php
 /**
- * @var boolean $asScript
+ * @var boolean $omitScriptTag
  * @var string  $trackingId
  * @var array   $trackingParams
  * @var array   $tackingPlugins
  */
 ?>
-<?php if($asScript){
+<?php if(!$omitScriptTag){
 	echo '<script>';
 } ?>
     <?= $trackingDebugTraceInit ?>
@@ -23,6 +23,6 @@
     <?php foreach($plugins as $plugin => $options) : ?>
     ga('require', '<?= $plugin ?>', <?= $options ?>);
     <?php endforeach ?>
-<?php if($asScript){
+<?php if(!$omitScriptTag){
 	echo '</script>';
 } ?>
