@@ -1,11 +1,14 @@
 <?php
 /**
+ * @var boolean $omitScriptTag
  * @var string  $trackingId
  * @var array   $trackingParams
  * @var array   $tackingPlugins
  */
 ?>
-<script>
+<?php if(!$omitScriptTag){
+	echo '<script>';
+} ?>
     <?= $trackingDebugTraceInit ?>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -20,4 +23,6 @@
     <?php foreach($plugins as $plugin => $options) : ?>
     ga('require', '<?= $plugin ?>', <?= $options ?>);
     <?php endforeach ?>
-</script>
+<?php if(!$omitScriptTag){
+	echo '</script>';
+} ?>
