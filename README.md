@@ -40,7 +40,11 @@ Then before `</head>` add following code
 ) ?>
 ```
 
-By default this script generated output :
+## Advanced usage
+
+### Omit script tag
+
+By default this script generated output:
 
 ```html
 <script>
@@ -54,17 +58,20 @@ ga('set', 'anonymizeIp', true);
 </script>
 ```
 
-But sometimes we need the output without `script` tag to combined with `registerJs` or `registerJsFile` as `renderPartial` to add dependency or positioning configuration, you can use *omitScriptTag* **true** to disable `script` tag, example :
+But sometimes we need the output without `script` tag to combined with `registerJs` or `registerJsFile` as `renderPartial` to add dependency or positioning configuration, you can use *omitScriptTag* **true** to disable `script` tag, example:
 
 ```php
-<?= $this->registerJs( GATracking::widget([
-    'trackingId'      => 'UA-XXXXXXXX-X',
-    'omitScriptTag'   => true
-]), \yii\web\View::POS_END
-);?>
+<?= $this->registerJs(
+    GATracking::widget([
+        'trackingId' => 'UA-XXXXXXXX-X',
+        'omitScriptTag' => true
+    ]), \yii\web\View::POS_END
+); ?>
 ```
 
-## Advanced usage
+### Example of advanced usage
+
+You can configure tracking script for your needs:
 
 ```php
 <?= GATracking::widget(
@@ -74,6 +81,7 @@ But sometimes we need the output without `script` tag to combined with `register
             'name' => 'myTracker',
             'allowAnchor' => false
         ],
+        'omitScriptTag' => true,
         'debug' => true,
         'debugTrace' => true,
         'anonymizeIp' => true,
@@ -90,10 +98,11 @@ But sometimes we need the output without `script` tag to combined with `register
 
 ## Available fields (parameters)
 
-
 | Field Name | Value Type | Default Value |
 | :--------- | :--------- | :------------ |
 | anonymizeIp | boolean | true |
+| debug | boolean | false |
+| debugTrace | boolean | false |
 
 ### [Official field reference](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference)
 
