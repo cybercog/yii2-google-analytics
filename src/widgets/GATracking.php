@@ -15,6 +15,13 @@ use yii\base\Widget;
  */
 class GATracking extends Widget
 {
+    
+    /**
+     * Render <script></script> 
+     * @var bool
+     */
+    public $omitScriptTag = false;
+    
     /**
      * The GA tracking ID
      * @var string
@@ -82,6 +89,7 @@ class GATracking extends Widget
         }
 
         $this->_viewParams = [
+            'omitScriptTag' => $this->omitScriptTag,
             'trackingId' => $this->trackingId,
             'trackingConfig' => $this->trackingConfig,
             'trackingFilename' => $this->_trackingFilename,
