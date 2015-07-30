@@ -81,7 +81,7 @@ You can configure tracking script for your needs:
             'name' => 'myTracker',
             'allowAnchor' => false
         ],
-        'omitScriptTag' => true,
+        'omitScriptTag' => false,
         'debug' => true,
         'debugTrace' => true,
         'anonymizeIp' => true,
