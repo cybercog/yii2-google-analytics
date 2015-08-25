@@ -59,6 +59,12 @@ class GATracking extends Widget
     public $plugins = [];
 
     /**
+     * Events list
+     * @var array
+     */
+    public $events = [];
+
+    /**
      * GA script filename
      * @var string
      */
@@ -87,6 +93,9 @@ class GATracking extends Widget
         foreach ($this->plugins as $plugin => &$options) {
             $options = json_encode($options);
         }
+        foreach ($this->events as $event => &$options) {
+            $options = json_encode($options);
+        }
 
         $this->_viewParams = [
             'omitScriptTag' => $this->omitScriptTag,
@@ -99,7 +108,8 @@ class GATracking extends Widget
                 // :TODO: Add more params
             ],
             // :TODO: Add availability to configure events
-            'plugins' => $this->plugins
+            'plugins' => $this->plugins,
+            'events' => $this->events
         ];
     }
 
