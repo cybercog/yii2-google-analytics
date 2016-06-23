@@ -1,6 +1,6 @@
 <?php
 /**
- * @var boolean $omitScriptTag
+ * @var bool    $omitScriptTag
  * @var string  $trackingId
  * @var array   $trackingConfig
  * @var array   $fields
@@ -8,7 +8,6 @@
  * @var string  $trackingFilename
  * @var string  $trackingDebugTraceInit
  */
-
 if (!$omitScriptTag) {
     echo "\n<script>";
 }

@@ -1,6 +1,8 @@
-# Google Analytics for Yii2
+# Yii2 Google Analytics Tracking
 
-[![Join the chat at https://gitter.im/cybercog/yii2-google-analytics](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/cybercog/yii2-google-analytics?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gitter chat at https://gitter.im/cybercog/yii2-google-analytics](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/cybercog/yii2-google-analytics?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Latest Stable Version](https://poser.pugx.org/cybercog/yii2-google-analytics/version)](https://packagist.org/packages/cybercog/yii2-google-analytics)
+[![License](https://poser.pugx.org/cybercog/yii2-google-analytics/license)](https://github.com/cybercog/yii2-google-analytics/blob/master/LICENSE)
 
 This extension provides easy way to add Universal Analytics tracking in your Yii2 application.
 
@@ -8,19 +10,11 @@ This extension provides easy way to add Universal Analytics tracking in your Yii
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
-Either run
+Run in console
 
 ```bash
-$ php composer.phar require cybercog/yii2-google-analytics "~0.2"
+php composer.phar require cybercog/yii2-google-analytics
 ```
-
-or add
-
-```json
-"cybercog/yii2-google-analytics": "~0.2"
-```
-
-to the require section of your `composer.json` file.
 
 ## Usage
 
@@ -33,11 +27,9 @@ use cybercog\yii\googleanalytics\widgets\GATracking;
 Then before `</head>` add following code
 
 ```php
-<?= GATracking::widget(
-    [
-        'trackingId' => 'UA-XXXXXXXX-X'
-    ]
-) ?>
+<?= GATracking::widget([
+    'trackingId' => 'UA-XXXXXXXX-X',
+]) ?>
 ```
 
 ## Advanced usage
@@ -64,7 +56,7 @@ But sometimes we need the output without `script` tag to combined with `register
 <?= $this->registerJs(
     GATracking::widget([
         'trackingId' => 'UA-XXXXXXXX-X',
-        'omitScriptTag' => true
+        'omitScriptTag' => true,
     ]), \yii\web\View::POS_END
 ); ?>
 ```
@@ -74,26 +66,24 @@ But sometimes we need the output without `script` tag to combined with `register
 You can configure tracking script for your needs:
 
 ```php
-<?= GATracking::widget(
-    [
-        'trackingId' => 'UA-XXXXXXXX-X',
-        'trackingConfig' => [
-            'name' => 'myTracker',
-            'allowAnchor' => false
+<?= GATracking::widget([
+    'trackingId' => 'UA-XXXXXXXX-X',
+    'trackingConfig' => [
+        'name' => 'myTracker',
+        'allowAnchor' => false,
+    ],
+    'omitScriptTag' => false,
+    'debug' => true,
+    'debugTrace' => true,
+    'anonymizeIp' => true,
+    'plugins' => [
+        'linkid' => [
+            'cookieName' => '_ccli',
+            'duration' => 45,
+            'levels' => 5,
         ],
-        'omitScriptTag' => false,
-        'debug' => true,
-        'debugTrace' => true,
-        'anonymizeIp' => true,
-        'plugins' => [
-            'linkid' => [
-                'cookieName' => '_ccli',
-                'duration' => 45,
-                'levels' => 5
-            ]
-        ]
-    ]
-) ?>
+    ],
+]) ?>
 ```
 
 ## Available fields (parameters)

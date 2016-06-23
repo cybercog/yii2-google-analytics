@@ -1,29 +1,29 @@
 <?php
 /**
  * @link https://github.com/cybercog/yii2-google-analytics
- * @copyright Copyright (c) 2015 LLC CyberCog
+ * @copyright Copyright (c) 2016 LLC CyberCog
  * @license http://opensource.org/licenses/BSD-3-Clause
  */
+
 namespace cybercog\yii\googleanalytics\widgets;
 
 use yii\base\Widget;
 
 /**
- * Class GATracking
+ * Class GATracking.
  * @package cybercog\yii\googleanalytics\widgets
  * @author Anton Komarev <ell@cybercog.su>
  */
 class GATracking extends Widget
 {
-
     /**
-     * Render <script></script>
+     * Render <script></script>.
      * @var bool
      */
     public $omitScriptTag = false;
 
     /**
-     * The GA tracking ID
+     * The GA tracking ID.
      * @var string
      */
     public $trackingId = null;
@@ -53,13 +53,13 @@ class GATracking extends Widget
     public $debugTrace = false;
 
     /**
-     * Plugins list
+     * Plugins list.
      * @var array
      */
     public $plugins = [];
 
     /**
-     * GA script filename
+     * GA script filename.
      * @var string
      */
     private $_trackingFilename = 'analytics.js';
@@ -101,11 +101,11 @@ class GATracking extends Widget
             'trackingFilename' => $this->_trackingFilename,
             'trackingDebugTraceInit' => $this->_trackingDebugTraceInit,
             'fields' => [
-                'anonymizeIp' => $this->anonymizeIp
+                'anonymizeIp' => $this->anonymizeIp,
                 // :TODO: Add more params
             ],
             // :TODO: Add availability to configure events
-            'plugins' => $this->plugins
+            'plugins' => $this->plugins,
         ];
     }
 
