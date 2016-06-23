@@ -15,13 +15,13 @@ use yii\base\Widget;
  */
 class GATracking extends Widget
 {
-    
+
     /**
-     * Render <script></script> 
+     * Render <script></script>
      * @var bool
      */
     public $omitScriptTag = false;
-    
+
     /**
      * The GA tracking ID
      * @var string
@@ -64,6 +64,9 @@ class GATracking extends Widget
      */
     private $_trackingFilename = 'analytics.js';
 
+    /**
+     * @var string
+     */
     private $_trackingDebugTraceInit = '';
 
     /**
@@ -71,6 +74,9 @@ class GATracking extends Widget
      */
     private $_viewParams;
 
+    /**
+     * @inheritdoc
+     */
     public function init()
     {
         parent::init();
@@ -103,6 +109,9 @@ class GATracking extends Widget
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function run()
     {
         echo $this->render('tracking', $this->_viewParams);
